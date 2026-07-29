@@ -59,7 +59,8 @@ Install it with all the default options.
 
 ## 4. Install Git
 
-**On Mac**, open the Terminal (see section 5) and run:
+**On Mac**, you need the Terminal for this one. Press Cmd+Space, type `Terminal`,
+press Enter. A window with text in it opens. Type this and press Enter:
 
 ```bash
 xcode-select --install
@@ -80,7 +81,8 @@ The [terminal](GLOSSARY.md#terminal) is a window where you type commands instead
 clicking buttons. It looks intimidating. In practice you will use about six
 commands, over and over, for the rest of your career.
 
-**On Mac:** press Cmd+Space, type `Terminal`, press Enter.
+**On Mac:** press Cmd+Space, type `Terminal`, press Enter. You already did this in
+step 4 — this is the same window.
 
 **On Windows:** click Start, type `Git Bash`, press Enter. Use Git Bash, not the
 Command Prompt and not PowerShell — the commands in these documents are written for
@@ -120,8 +122,12 @@ Go to `https://github.com/signup` and create an account.
 Choose your username carefully. This is a public portfolio that future employers
 may read. `ali-hassan-dev` is good. `xX_gamer_2010_Xx` is not.
 
-Then send your username to Ahmad, so he can give you access to the project. You
-cannot do the next steps until he does, so send it now.
+Then send your username to Ahmad, so he can give you access to the project. Send it
+now, before you carry on.
+
+You do not have to wait for him to reply. The project is public, so you can
+download it and work on it straight away. His invitation is what lets you *send*
+your work back — you will need it by step 11, not before.
 
 ---
 

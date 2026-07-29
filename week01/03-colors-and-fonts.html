@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Exercise 3 — colours and fonts</title>
+
+  <!-- PRACTISING: colours three different ways, and controlling text.
+
+       WHAT TO DO:
+       1. Open this in your browser and read the CSS below alongside what you see.
+       2. Change --accent to a colour you like. Notice that three things change at
+          once, because three rules use that one variable. That is the point of
+          custom properties.
+       3. Pick your own palette: a background, a text colour, and an accent. Replace
+          all three.
+       4. Change the font-size of body to 20px. Notice that the h1 gets bigger too,
+          because rem units are relative to the root font size.
+       5. Set line-height to 1 and then to 2. Read the paragraph both ways. Line
+          height matters more than people expect.
+
+       THREE WAYS TO WRITE A COLOUR, all used below:
+       - by name:      tomato
+       - by hex code:  #e0b44a
+       - by variable:  var(--accent)
+
+       LEARN: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units
+  -->
+
+  <style>
+    :root {
+      --accent: #e0b44a;
+    }
+
+    body {
+      background: #14161a;
+      color: #e8e6e3;
+      font-family: system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      padding: 32px;
+    }
+
+    h1 {
+      color: var(--accent);
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .warning {
+      color: tomato;
+    }
+
+    .quiet {
+      color: #8a8a8a;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Colours and fonts</h1>
+
+  <p>
+    This paragraph is plain text. This bit is
+    <span class="highlight">highlighted with the accent colour</span>, and this bit
+    is <span class="warning">a warning in tomato</span>.
+  </p>
+
+  <p class="quiet">
+    This whole paragraph is quieter: smaller and greyer. Real interfaces need
+    several levels of emphasis, not just one.
+  </p>
+
+</body>
+</html>

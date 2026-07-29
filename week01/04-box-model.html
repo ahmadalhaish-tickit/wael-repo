@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Exercise 4 — the box model</title>
+
+  <!-- PRACTISING: margin, padding, border, and box-sizing. This is the single most
+       useful thing to understand in CSS, and the most common source of "why is it
+       not lining up".
+
+       EVERY ELEMENT IS A BOX with four layers, from the inside out:
+       - content  the text or image itself
+       - padding  space INSIDE the box, between the content and the border
+       - border   the line around the box
+       - margin   space OUTSIDE the box, pushing other boxes away
+
+       Padding is inside, margin is outside. That is the whole distinction, and
+       getting it backwards is a rite of passage.
+
+       WHAT TO DO:
+       1. Open this in your browser. The first box shows each layer in a different
+          colour.
+       2. Right-click the box, choose Inspect, and find the box model diagram in the
+          panel that opens. Hover over each layer and watch it highlight on the
+          page. Use this tool for the rest of your life.
+       3. Change the padding on .demo from 20px to 60px. What moves?
+       4. Change the margin from 20px to 60px. What moves this time?
+       5. Comment out the box-sizing rule at the top. The boxes get wider than
+          200px, because without it, padding and border are ADDED to the width.
+          That is why almost every real project sets border-box everywhere.
+       6. THE TASK: make the three boxes at the bottom sit side by side, with even
+          space between them. Several ways work. Try flexbox first:
+          .row { display: flex; gap: 16px; }
+
+       LEARN: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model
+  -->
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #14161a;
+      color: #e8e6e3;
+      font-family: system-ui, sans-serif;
+      padding: 32px;
+    }
+
+    .demo {
+      width: 200px;
+      background: #2a3f5f;      /* the content and padding area */
+      padding: 20px;
+      border: 6px solid #e0b44a;
+      margin: 20px;
+    }
+
+    .box {
+      width: 120px;
+      padding: 16px;
+      background: #2a2d34;
+      border: 2px solid #4a4d54;
+      text-align: center;
+    }
+
+    /* Your task is here. Make the three boxes sit in a row. */
+    .row {
+    }
+  </style>
+</head>
+<body>
+
+  <h1>The box model</h1>
+
+  <div class="demo">
+    Blue is content and padding. Gold is the border. The gap outside the gold is
+    margin.
+  </div>
+
+  <h2>Your task: put these three in a row</h2>
+
+  <div class="row">
+    <div class="box">One</div>
+    <div class="box">Two</div>
+    <div class="box">Three</div>
+  </div>
+
+</body>
+</html>

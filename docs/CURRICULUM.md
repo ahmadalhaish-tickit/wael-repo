@@ -93,8 +93,8 @@ computer does the repeating — actually feels like a relief.
 - [ ] They are six films or series you genuinely want to watch, not placeholders
 - [ ] Every poster URL loads
 - [ ] At least two are marked watched and at least two are not
-- [ ] The comment `<!-- Task 1.3: add four more cards here -->` is removed, because
-      it is done
+- [ ] The comment `<!-- Task 1.3: add four more cards here. Copy the pattern
+      above. -->` is removed, because it is done
 
 **Learn:** Nothing new. If you find yourself thinking "there must be a better way
 than copying this six times" — yes, there is, and it is week 2.

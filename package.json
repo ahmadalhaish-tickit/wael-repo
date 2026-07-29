@@ -1,0 +1,9 @@
+{
+  "name": "watchlist-track",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node tools/check-curriculum.mjs",
+    "test": "node --test tools/"
+  }
+}

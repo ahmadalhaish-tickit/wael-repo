@@ -248,7 +248,7 @@ for him removes the task.
 There is a validator for the curriculum. It is not for the student.
 
 ```bash
-node --run check
+npm run check
 ```
 
 It verifies that every task has all four required parts, that every branch name is
@@ -257,7 +257,7 @@ the curriculum without a glossary entry. Run it after any edit to
 `docs/CURRICULUM.md` or `docs/GLOSSARY.md`.
 
 ```bash
-node --run test
+npm test
 ```
 
 Tests for the validator itself.

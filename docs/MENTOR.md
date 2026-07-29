@@ -243,6 +243,22 @@ for him removes the task.
 
 ---
 
+## The two exercise folders that do not exist yet
+
+Only weeks 1, 2 and 5 have practice exercises. Weeks 3, 4 and 8 modify `app/`
+directly; weeks 6 and 7 build `server/`. So there are exactly two folders still to
+come, not six.
+
+`week01/` was written in advance because on day one he cannot write HTML yet and
+needs something to read. `week02/` and `week05/` are deliberately left until the end
+of week 1 and the end of week 4, so they can be aimed at what he actually got wrong
+— visible by then in his pull requests and his learning log. If loops were the
+wobble, week 2 gets three loop exercises rather than one.
+
+Tasks 2.1 and 5.1 in the curriculum already specify what each file must contain, so
+if the exercises never get written, he can create them himself from the task and
+nothing is blocked.
+
 ## Checking the curriculum after edits
 
 There is a validator for the curriculum. It is not for the student.

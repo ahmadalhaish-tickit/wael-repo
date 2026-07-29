@@ -1,6 +1,7 @@
 # Curriculum
 
-Eight weeks, eight milestones, 39 tasks. Do them in order, top to bottom.
+Eight weeks, eight milestones, 39 tasks — plus 3 optional tasks at the end that you
+only touch if everything else is finished. Do them in order, top to bottom.
 
 ## How to use this file
 
@@ -446,3 +447,523 @@ Stop here. Ahmad reviews the first half before you start the backend.
 **If it is a no-go:** you repeat weeks 3 and 4 with different exercises. This
 happens, it is a pacing decision rather than a verdict, and going on without the
 basics would waste more of your time than repeating them.
+
+---
+
+# Milestone 5 — Real data from the internet
+
+Your six movies are ones you typed in. This week your app talks to a service that
+knows about every film ever made.
+
+### Task 5.1: Talking to a server
+
+**Branch:** `week05/fetch-exercises`
+
+**Goal:** Practise [fetch](GLOSSARY.md#fetch) on something with no
+[key](GLOSSARY.md#key) and no setup, before adding it to your real app.
+
+Create `week05/` with four files. Use `https://api.github.com/users/<your-github-username>`
+as the [API](GLOSSARY.md#api) — it is public and needs no key. Run them in the
+browser [console](GLOSSARY.md#console) or with Node.
+
+**Done when:**
+- [ ] `01-fetch-and-log.js` — fetches your GitHub profile and logs the whole
+      [response](GLOSSARY.md#response) data
+- [ ] `02-read-one-field.js` — logs only your `public_repos` count
+- [ ] `03-async-await.js` — the same thing written with `async`/`await` instead of
+      `.then()`, and a comment saying which you find easier to read
+- [ ] `04-handle-404.js` — fetches a username that does not exist and prints a
+      readable message instead of crashing
+- [ ] You can explain in your PR what `await` actually waits for
+
+**Learn:** [JavaScript.info, promises and async/await](https://javascript.info/async),
+and MDN,
+[using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
+
+### Task 5.2: Search real movies
+
+**Branch:** `week05/tmdb-search`
+
+**Goal:** Use a real API with a real key.
+
+Get a free key at `https://www.themoviedb.org/settings/api` — sign up, then request
+an API key for personal use.
+
+**This repository is public. Anyone on the internet can read every file in it. A key
+committed here is a key you have given away.** Put your key in `app/config.js`,
+which is already listed in `.gitignore`. Before every commit this week, run
+`git status` and check that `config.js` is not in the list. In week 6 you will move
+it somewhere it is actually safe.
+
+**Done when:**
+- [ ] A search box queries TMDB's search endpoint and shows the results
+- [ ] Each result shows the title, the year and the poster
+- [ ] Results with no poster do not show a broken image
+- [ ] Your key is in `app/config.js` and `git status` never lists that file
+- [ ] The search results area is separate from your watchlist — you have not
+      replaced your list, you have added a way to find things
+
+**Learn:** [TMDB search API documentation](https://developer.themoviedb.org/reference/search-movie).
+Poster URLs need a size prefix, which the docs explain under images — expect to get
+this wrong once.
+
+### Task 5.3: Add from search
+
+**Branch:** `week05/add-from-search`
+
+**Goal:** Join the two halves of your app together.
+
+**Done when:**
+- [ ] Clicking a search result adds that movie to your watchlist
+- [ ] It arrives with the real title, real year and real poster from TMDB
+- [ ] It saves to [localStorage](GLOSSARY.md#localstorage) like any other movie
+- [ ] Adding the same film twice either prevents it or warns you — you decided
+      which, and said why in your PR
+- [ ] Your old manual add form still works, or you removed it deliberately and
+      explained why
+
+**Learn:** Nothing new. This task is mostly about shaping data from one place into
+the shape your app already expects.
+
+### Task 5.4: When things go wrong
+
+**Branch:** `week05/loading-and-errors`
+
+**Goal:** Handle the unhappy path. Beginner projects assume everything works;
+real ones cannot.
+
+**Done when:**
+- [ ] A "Loading…" or spinner shows while a search is in flight, and disappears
+      after
+- [ ] A failed request shows a readable message, not a blank screen and not a
+      console error only
+- [ ] **You tested it by turning off your wifi and searching**
+- [ ] A search with no results says so
+- [ ] The app is still usable after an error — you can search again without
+      reloading
+
+**Learn:** MDN,
+[try...catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch).
+Note that `fetch` does not throw on a 404 — it only throws when the request could
+not be made at all. That surprises everyone, and it is why you check
+`response.ok`.
+
+### Task 5.5: Keep the key out of the repository
+
+**Branch:** `week05/gitignore-config`
+
+**Goal:** Make it possible for someone else to run your app without handing them
+your key.
+
+**Done when:**
+- [ ] `app/config.js` holds your real key and is not committed
+- [ ] `app/config.example.js` is committed, with a fake value and a comment saying
+      what to do with it
+- [ ] `README.md` explains how to get a key and where to put it
+- [ ] `git log --all --oneline -- app/config.js` prints nothing, proving the real
+      file was never committed at any point
+- [ ] You can explain in your PR why this is still not actually secure, and what
+      would be
+
+**Learn:** No link needed. The honest answer to that last box: anyone who opens your
+deployed site can still read the key out of the browser. `.gitignore` hides it from
+your repository, not from your users. Week 6 fixes it properly.
+
+---
+
+# Milestone 6 — TypeScript, and your own server
+
+**This is the hardest week.** Two new things at once: a language that checks your
+work, and a program that is not a web page. Expect it to take longer than the
+others, and ask for help earlier than you normally would.
+
+### Task 6.1: A project that compiles
+
+**Branch:** `week06/npm-and-typescript`
+
+**Goal:** Get [TypeScript](GLOSSARY.md#typescript) running before writing anything
+interesting in it.
+
+**Done when:**
+- [ ] `server/` exists with a `package.json` created by `npm init -y`
+- [ ] TypeScript is installed as a dev [dependency](GLOSSARY.md#dependency)
+- [ ] `server/tsconfig.json` exists
+- [ ] `server/src/index.ts` prints one line, and `npm run dev` runs it
+- [ ] `node_modules` is not committed — check with `git status`
+- [ ] You deliberately assigned a number to a variable typed as a string, saw
+      TypeScript complain, and pasted the error into your PR
+
+**Learn:** [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html).
+Use `tsx` or `ts-node` for `npm run dev` so you do not have to compile by hand
+every time.
+
+### Task 6.2: Your first endpoint
+
+**Branch:** `week06/express-get-movies`
+
+**Goal:** A [server](GLOSSARY.md#server) that answers a question.
+
+**Done when:**
+- [ ] [Express](GLOSSARY.md#express) is installed and the server listens on a port
+- [ ] `GET /movies` returns your six movies as [JSON](GLOSSARY.md#json)
+- [ ] Opening `http://localhost:3000/movies` in a browser shows the JSON
+- [ ] The movies live in an [array](GLOSSARY.md#array) in the server file for now —
+      no [database](GLOSSARY.md#database) yet
+- [ ] You can explain in your PR what "listening on port 3000" means
+
+**Learn:** [Express, hello world](https://expressjs.com/en/starter/hello-world.html),
+and MDN,
+[an overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview).
+
+### Task 6.3: Accept new movies
+
+**Branch:** `week06/express-post-movies`
+
+**Goal:** An [endpoint](GLOSSARY.md#endpoint) that changes something, and that does
+not trust what it is given.
+
+**Done when:**
+- [ ] `POST /movies` adds a movie to the array and returns the created movie
+- [ ] It reads JSON from the request body — you added `express.json()` and know why
+- [ ] A request with no title returns status `400` and a message saying what was
+      wrong
+- [ ] A request with a title that is not text also returns `400`
+- [ ] You tested all of this before touching the frontend, with `curl` or Postman or
+      the VS Code REST Client extension
+- [ ] New movies get an `id`
+
+**Learn:** [Express, routing](https://expressjs.com/en/guide/routing.html). Testing
+an endpoint without a UI is a skill worth building now: it separates "my server is
+broken" from "my page is broken", and you will otherwise spend hours confusing the
+two.
+
+### Task 6.4: Types for your data
+
+**Branch:** `week06/types-for-movie`
+
+**Goal:** Describe the shape of a movie once, and let TypeScript enforce it
+everywhere.
+
+**Done when:**
+- [ ] `server/src/types.ts` exports exactly this
+      [interface](GLOSSARY.md#interface):
+      `interface Movie { id: number; title: string; year: number; poster: string; watched: boolean }`
+- [ ] Both endpoints use it
+- [ ] There is no `any` left in your server code
+- [ ] You can explain in your PR the difference between this interface and a check
+      you write yourself at runtime — and why you still need the `400` check from
+      task 6.3
+
+**Learn:** [TypeScript, object types](https://www.typescriptlang.org/docs/handbook/2/objects.html).
+That last box matters: TypeScript checks your code before it runs, and disappears
+entirely when it does. It cannot check what a stranger sends your server.
+
+### Task 6.5: The frontend uses your API
+
+**Branch:** `week06/frontend-uses-api`
+
+**Goal:** Two programs talking to each other. This is the moment your project
+becomes a real application.
+
+**Done when:**
+- [ ] The page loads its list with `fetch` from your own server
+- [ ] Adding a movie sends a `POST` to your server
+- [ ] `app/storage.js` and every use of localStorage are deleted
+- [ ] You handled the CORS error you are about to get, and can explain in your PR
+      what CORS is protecting against
+- [ ] **Stopping the server makes the page show an error instead of movies, and you
+      understand why**
+- [ ] Two terminals are now part of your workflow: one for the server, one for
+      everything else
+
+**Learn:** MDN,
+[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) — read the first two
+sections only, then use the `cors` package. The bolded box is the lesson: your data
+now lives somewhere else, and something else can be down.
+
+### Task 6.6: Move the key to the server
+
+**Branch:** `week06/move-key-server-side`
+
+**Goal:** The reason backends exist.
+
+**Done when:**
+- [ ] `GET /search?q=` on your server calls TMDB and returns the results
+- [ ] The key is read from an [environment variable](GLOSSARY.md#environment-variable)
+      in `server/.env`
+- [ ] `server/.env` is not committed; `server/.env.example` is, with a fake value
+- [ ] The frontend calls your `/search`, never TMDB directly
+- [ ] `app/config.js` and `app/config.example.js` are deleted
+- [ ] **You searched the whole repository for your key and found nothing** — run
+      `git grep -i <first-6-characters-of-your-key>` and get no results
+- [ ] You opened your site's Network tab, searched, and confirmed the key does not
+      appear in any request the browser makes
+
+**Learn:** [The dotenv package](https://github.com/motdotla/dotenv#readme).
+
+Then read this once more, now that you have done it: this is why backends exist.
+Not for speed, and not for tidiness — because some things must never reach the
+browser. Every login system, every payment, every private API key in every company
+you will ever work for exists on a server for exactly this reason.
+
+---
+
+# Milestone 7 — A real database
+
+An array in your server lives in memory and dies when the server stops. This week
+your data lives on disk.
+
+### Task 7.1: Set up the database
+
+**Branch:** `week07/prisma-init`
+
+**Goal:** A [schema](GLOSSARY.md#schema), a [migration](GLOSSARY.md#migration), and
+a real [SQLite](GLOSSARY.md#sqlite) file.
+
+**Done when:**
+- [ ] [Prisma](GLOSSARY.md#prisma) is installed and `npx prisma init` has been run
+- [ ] `server/prisma/schema.prisma` has a `Movie` model matching your `Movie`
+      interface exactly — same field names, same types
+- [ ] `npx prisma migrate dev` ran and created a migration file
+- [ ] `dev.db` exists and is **not** committed
+- [ ] The migration file **is** committed, and you can explain in your PR why the
+      migration is committed but the database is not
+- [ ] You opened `npx prisma studio` and saw your empty table
+
+**Learn:** [Prisma, start from scratch with SQLite](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-sqlite).
+
+### Task 7.2: Read from the database
+
+**Branch:** `week07/read-from-db`
+
+**Goal:** Replace the array with a real [query](GLOSSARY.md#query).
+
+**Done when:**
+- [ ] `GET /movies` reads with `prisma.movie.findMany()`
+- [ ] The hardcoded array is gone from your server code
+- [ ] With an empty database the endpoint returns `[]`, not an error
+- [ ] The frontend shows the empty state you built in task 4.4 — it still works,
+      unchanged, against completely different plumbing
+
+**Learn:** [Prisma Client, CRUD](https://www.prisma.io/docs/orm/prisma-client/queries/crud).
+
+### Task 7.3: Write to the database
+
+**Branch:** `week07/write-to-db`
+
+**Goal:** The point of the whole week.
+
+**Done when:**
+- [ ] `POST /movies` writes with `prisma.movie.create()`
+- [ ] Your `400` validation from task 6.3 still runs before the write
+- [ ] **You added a movie, stopped the server, started it again, refreshed the
+      page, and your movie was still there**
+- [ ] You can explain the difference between memory and disk in your PR, in one
+      sentence
+
+**Learn:** No new link. If the bolded box works, you have understood this week.
+
+### Task 7.4: Delete and update
+
+**Branch:** `week07/delete-and-update`
+
+**Goal:** Finish the set of four operations every application performs.
+
+**Done when:**
+- [ ] `DELETE /movies/:id` removes one movie
+- [ ] `PATCH /movies/:id` changes `watched`
+- [ ] Your delete button and watched badge use them
+- [ ] Deleting an id that does not exist returns `404`, not a crash
+- [ ] You can explain in your PR why `DELETE` and `PATCH` exist as separate methods
+      instead of doing everything with `POST`
+
+**Learn:** [Prisma, delete and update](https://www.prisma.io/docs/orm/prisma-client/queries/crud#delete),
+and MDN,
+[HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+
+### Task 7.5: Seed the database
+
+**Branch:** `week07/seed-script`
+
+**Goal:** Make a fresh copy of the project usable in one command.
+
+**Done when:**
+- [ ] `server/prisma/seed.ts` inserts your original six movies
+- [ ] `npm run seed` runs it
+- [ ] Running it twice does not create twelve movies — you handled that, and said
+      how in your PR
+- [ ] `README.md` documents the command
+- [ ] You deleted `dev.db`, re-ran the migration and the seed, and got a working app
+      back
+
+**Learn:** [Prisma, seeding](https://www.prisma.io/docs/orm/prisma-migrate/workflows/seeding).
+This is what lets a new developer — or you, on a new laptop — go from clone to
+running in two minutes.
+
+---
+
+# Milestone 8 — Put it on the internet
+
+Your app works on your laptop. This week it works for everyone.
+
+### Task 8.1: Stop hardcoding localhost
+
+**Branch:** `week08/env-config`
+
+**Goal:** Same code, different settings, depending on where it runs.
+
+**Done when:**
+- [ ] The frontend reads the API address from one place, not `localhost:3000`
+      scattered through the files
+- [ ] Changing that one value makes the whole app point somewhere else
+- [ ] The server reads its port from an
+      [environment variable](GLOSSARY.md#environment-variable), with a sensible
+      default
+- [ ] The app still works locally after all this
+
+**Learn:** No link. The principle has a name — configuration should live outside
+code — and you have already met it twice, with your API key and your `.env`.
+
+### Task 8.2: Deploy the server
+
+**Branch:** `week08/deploy-backend`
+
+**Goal:** Your API on a real address.
+
+**Done when:**
+- [ ] The server is deployed on Render's free tier
+- [ ] `DATABASE_URL` and your TMDB key are set as environment variables in Render's
+      dashboard, not in any committed file
+- [ ] Opening `https://<your-app>.onrender.com/movies` in a browser returns JSON
+- [ ] Your build and start commands are documented in `README.md`
+
+**Note:** a free Render server goes to sleep when nobody uses it, so the first load
+after a quiet period takes about 30 seconds. That is not your bug, and it is worth
+knowing before you panic about it.
+
+**Learn:** [Render, deploy a Node Express app](https://render.com/docs/deploy-node-express-app).
+
+### Task 8.3: Deploy the frontend
+
+**Branch:** `week08/deploy-frontend`
+
+**Goal:** The whole thing, live, end to end.
+
+**Done when:**
+- [ ] GitHub Pages serves your frontend, pointed at your live API
+- [ ] CORS on the server allows your Pages address specifically, not `*` — and you
+      can explain in your PR why `*` is worse
+- [ ] Adding a movie on the live site persists — you checked from a different device
+- [ ] The live link in `README.md` is updated
+- [ ] Someone else opened it and it worked for them
+
+**Learn:** [Express CORS options](https://expressjs.com/en/resources/middleware/cors.html#configuration-options).
+
+### Task 8.4: Write the README properly
+
+**Branch:** `week08/readme-screenshots`
+
+**Goal:** This repository is now a portfolio piece. Make it read like one.
+
+**Done when:**
+- [ ] `README.md` opens with what the app does and the live link
+- [ ] Two screenshots, embedded and actually visible on GitHub
+- [ ] A short list of what it is built with
+- [ ] Instructions a stranger can follow from clone to running, including the seed
+      step and the environment variables
+- [ ] A short "what I would build next" section
+- [ ] **You followed your own instructions from a fresh clone in a different folder
+      and they worked**
+
+**Learn:** No link. Read the README of any project you have used and liked, and
+notice what it tells you in the first five lines.
+
+### Task 8.5: Look back
+
+**Branch:** `week08/retrospective`
+
+**Goal:** Notice how far you came, while it is still fresh.
+
+**Done when:**
+- [ ] `RETROSPECTIVE.md` exists and answers: which week was hardest and why; what
+      you are proudest of; what you would do differently; what you want to learn
+      next
+- [ ] You read your own `LEARNING.md` from week 1 before writing it
+- [ ] It is honest rather than polished
+
+**Learn:** No link. Eight weeks ago you had not opened a terminal. Read your first
+log entry, then look at your live site.
+
+---
+
+# Optional — Accounts
+
+**This is not part of the eight weeks.** Do it only if milestones 1 to 8 are
+finished and merged. Skipping it costs you nothing, and finishing eight weeks with a
+working deployed app is the goal.
+
+### Task S.1: Sign up
+
+**Branch:** `stretch/signup`
+
+**Goal:** Store a password without ever storing the password.
+
+**Done when:**
+- [ ] `POST /signup` stores an email and a `bcrypt` hash
+- [ ] The plain password is never written to the database or to any log
+- [ ] A duplicate email returns `400`
+- [ ] You explain in your PR, in your own words, why a hash and not encryption
+
+**Learn:** [The bcrypt package](https://github.com/kelektiv/node.bcrypt.js#readme).
+
+### Task S.2: Log in
+
+**Branch:** `stretch/login-jwt`
+
+**Goal:** Prove who someone is on later requests, without asking again each time.
+
+**Done when:**
+- [ ] `POST /login` returns a token when the password is right
+- [ ] A wrong password returns `401` — with the same message as an unknown email,
+      and you can say why in your PR
+- [ ] The token is signed with a secret from `.env`
+- [ ] Frontend stores the token and sends it on every request
+
+**Learn:** [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken#readme).
+
+### Task S.3: Your own list
+
+**Branch:** `stretch/per-user-movies`
+
+**Goal:** Data that belongs to someone.
+
+**Done when:**
+- [ ] The `Movie` model has a relation to a `User`, added by a migration
+- [ ] `GET /movies` returns only the logged-in user's movies
+- [ ] **A request with someone else's id cannot read or delete your movies — you
+      tried it**
+- [ ] Requests with no token return `401`
+
+**Learn:** [Prisma, relations](https://www.prisma.io/docs/orm/prisma-schema/data-model/relations).
+That bolded box is a real vulnerability class with a name — insecure direct object
+reference — and it ships in production software constantly. Testing for it yourself
+is the habit worth keeping.
+
+---
+
+# Resources
+
+Five places. Use the right one for the job rather than searching blindly.
+
+| Where | When to use it |
+|---|---|
+| [MDN](https://developer.mozilla.org/) | How something officially works. The reference you will still be using in ten years. |
+| [JavaScript.info](https://javascript.info/) | Learning a concept properly, from the start, with exercises. Better than MDN for learning; worse for looking up. |
+| [freeCodeCamp](https://www.freecodecamp.org/learn) | Extra practice when a topic has not clicked yet. |
+| [TypeScript handbook](https://www.typescriptlang.org/docs/handbook/intro.html) | From week 6 on. |
+| [Prisma docs](https://www.prisma.io/docs/getting-started) | Week 7. Unusually good documentation — read it rather than guessing. |
+
+A note on searching: paste the **exact** error message into your search, minus
+anything specific to your computer like file paths. Someone has had your error
+before. Stack Overflow answers from 2013 are often still correct for HTML and CSS,
+and often wrong for JavaScript tooling — check the date.

@@ -109,6 +109,14 @@ Whoever is asking. In web terms, the browser is the client and it asks the
 Example: your page is the client; the Express app you build in week 6 is the
 server.
 
+### column
+
+One field of a database [table](#table) — a single piece of information that every
+[row](#row) has, with one [type](#type).
+
+Example: your `movies` table has `title`, `year` and `watched` columns. Every movie
+in it has all three.
+
 ### commit
 
 A saved point in your project's history, with a message describing what changed.
@@ -272,6 +280,15 @@ is what makes a page *do* things rather than just show things. With
 
 Example: everything in weeks 2 to 5 is JavaScript.
 
+### join
+
+A [SQL](#sql) [query](#query) that combines two [tables](#table) by matching a value
+they share. It is how a database answers questions that live in more than one place.
+
+Example: your `movies` table stores a director's id, and your `directors` table
+stores their name. A join is what lets one query return the film and the name
+together.
+
 ### json
 
 JavaScript Object Notation: a text format for data, used everywhere on the web
@@ -411,6 +428,14 @@ What a [function](#function) hands back to whoever called it. A function without
 Example: `function countWatched(movies) { return movies.filter(m => m.watched).length }`
 hands back a number you can then put on the page.
 
+### row
+
+One record in a database [table](#table) — one whole thing, with a value in every
+[column](#column).
+
+Example: one film is one row in your `movies` table. Adding a film adds a row;
+deleting it removes that row.
+
 ### schema
 
 The definition of the shape of your data — which tables exist, which columns they
@@ -425,6 +450,15 @@ computer that program runs on.
 
 Example: you write your first server in week 6. Until then, your project has no
 server at all — the browser does everything.
+
+### sql
+
+Structured Query Language: the language databases speak. You ask for what you want
+rather than describing how to fetch it, which is why it looks unlike JavaScript.
+
+Example: `SELECT title FROM movies WHERE watched = 0` asks for the titles of every
+unwatched film. You write SQL by hand in task 7.0, then [Prisma](#prisma) writes it
+for you for the rest of week 7.
 
 ### sqlite
 
@@ -448,6 +482,13 @@ Text, in code. Written inside quotes.
 
 Example: `"Dune"` is a string. `2021` is a number, but `"2021"` is a string — and
 that difference will confuse you at least once.
+
+### table
+
+A collection of [rows](#row) of the same kind of thing in a [database](#database),
+with named [columns](#column). A spreadsheet is a useful first picture of it.
+
+Example: a `movies` table, where each row is one film.
 
 ### tag
 

@@ -1,6 +1,6 @@
 # Curriculum
 
-Eight weeks, eight milestones, 39 tasks — plus 3 optional tasks at the end that you
+Eight weeks, eight milestones, 40 tasks — plus 3 optional tasks at the end that you
 only touch if everything else is finished. Do them in order, top to bottom.
 
 ## How to use this file
@@ -713,6 +713,55 @@ you will ever work for exists on a server for exactly this reason.
 An array in your server lives in memory and dies when the server stops. This week
 your data lives on disk.
 
+You do this week twice. First by hand, writing [SQL](GLOSSARY.md#sql) yourself, so
+you see what a database actually is. Then with [Prisma](GLOSSARY.md#prisma), which
+writes that same SQL for you. Doing it in that order is the difference between using
+a tool and trusting a tool.
+
+### Task 7.0: SQL by hand
+
+**Branch:** `week07/sql-by-hand`
+
+**Goal:** Talk to a database directly, with no library in the way, before any tool
+hides it from you.
+
+No JavaScript in this task at all. You type queries, the database answers.
+
+**On Mac** `sqlite3` is already installed — type `sqlite3 --version` to check. **On
+Windows** download the "sqlite-tools" bundle from `https://sqlite.org/download.html`,
+unzip it, and run `sqlite3.exe` from that folder.
+
+Start a scratch database and keep every query you write in `week07/queries.sql`, with
+a comment above each one saying what it does. That file is what gets reviewed.
+
+```bash
+sqlite3 week07/scratch.db
+```
+
+**Done when:**
+- [ ] `CREATE TABLE movies` with an id, a title, a year and a watched column — and
+      you chose a [type](GLOSSARY.md#type) for each one
+- [ ] `INSERT` three of your films, one statement each
+- [ ] `SELECT *` shows all three
+- [ ] `SELECT title, year ... WHERE year > 2000` shows only the newer ones
+- [ ] `... ORDER BY year DESC` shows them newest first
+- [ ] `UPDATE` marks one film watched
+- [ ] `DELETE` removes one film, and `SELECT *` proves only that one went
+- [ ] A second table `directors`, and one `SELECT` with a
+      [JOIN](GLOSSARY.md#join) that lists each film next to its director's name
+- [ ] Every query is saved in `week07/queries.sql` with a comment explaining it
+- [ ] `week07/scratch.db` is **not** committed — it is a database file, and
+      `.gitignore` already blocks `*.db`
+- [ ] You can say in your PR what a [row](GLOSSARY.md#row) and a
+      [column](GLOSSARY.md#column) are, in your own words
+
+**Learn:** [SQLite in one page](https://www.sqlite.org/quickstart.html) for getting
+in and out of the tool, and
+[SQLBolt lessons 1 to 6](https://sqlbolt.com/) for the queries themselves — it is
+interactive, and six lessons is about an hour.
+
+Getting out of the tool is `.quit`. Everyone gets stuck in there once.
+
 ### Task 7.1: Set up the database
 
 **Branch:** `week07/prisma-init`
@@ -744,8 +793,17 @@ a real [SQLite](GLOSSARY.md#sqlite) file.
 - [ ] With an empty database the endpoint returns `[]`, not an error
 - [ ] The frontend shows the empty state you built in task 4.4 — it still works,
       unchanged, against completely different plumbing
+- [ ] **You turned on Prisma's query logging with
+      `new PrismaClient({ log: ['query'] })`, called the endpoint, and read the
+      [SQL](GLOSSARY.md#sql) it printed in your terminal**
+- [ ] You pasted that generated SQL into your PR next to the `SELECT` you wrote by
+      hand in task 7.0, and said how they differ
 
-**Learn:** [Prisma Client, CRUD](https://www.prisma.io/docs/orm/prisma-client/queries/crud).
+**Learn:** [Prisma Client, CRUD](https://www.prisma.io/docs/orm/prisma-client/queries/crud),
+and [Prisma logging](https://www.prisma.io/docs/orm/prisma-client/observability-and-logging/logging).
+
+Leave that logging on for the rest of the week. Every Prisma call you write will
+print the SQL it generated, and after a few days you stop finding it magic.
 
 ### Task 7.3: Write to the database
 

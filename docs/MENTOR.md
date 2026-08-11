@@ -193,7 +193,7 @@ student's GitHub username.
 ```bash
 # 1. Create the public repository and push everything
 cd /Users/ahmadalhaich/Documents/Claude/Projects/watchlist
-gh repo create watchlist --public --source=. --remote=origin --push
+gh repo create wael-repo --public --source=. --remote=origin --push
 ```
 
 Public is required, not just preferred: GitHub Pages needs a public repo on a free
@@ -202,7 +202,7 @@ be committed, which is why the API key lesson appears twice in the curriculum.
 
 ```bash
 # 2. Invite the student with write access
-gh api -X PUT repos/ahmadalhaish-tickit/watchlist/collaborators/<student-github-username> \
+gh api -X PUT repos/ahmadalhaish-tickit/wael-repo/collaborators/<student-github-username> \
   -f permission=push
 ```
 
@@ -211,7 +211,7 @@ branch protection.
 
 ```bash
 # 3. Protect main
-gh api -X PUT repos/ahmadalhaish-tickit/watchlist/branches/main/protection \
+gh api -X PUT repos/ahmadalhaish-tickit/wael-repo/branches/main/protection \
   -H "Accept: application/vnd.github+json" \
   -F "required_pull_request_reviews[required_approving_review_count]=1" \
   -F "required_pull_request_reviews[dismiss_stale_reviews]=true" \
@@ -232,7 +232,7 @@ push straight to `main` and the review step becomes advisory.
 
 ```bash
 # 4. Enable GitHub Pages from main, needed for task 1.5
-gh api -X POST repos/ahmadalhaish-tickit/watchlist/pages \
+gh api -X POST repos/ahmadalhaish-tickit/wael-repo/pages \
   -H "Accept: application/vnd.github+json" \
   -F "source[branch]=main" -F "source[path]=/"
 ```

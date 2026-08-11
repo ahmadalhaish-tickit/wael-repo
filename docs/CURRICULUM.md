@@ -135,7 +135,7 @@ under Pages, choosing `main` as the source.
 **Done when:**
 - [ ] GitHub Pages is enabled and the build succeeded (green tick in the Actions
       tab)
-- [ ] Opening `https://<ahmad-username>.github.io/watchlist/app/` shows your page
+- [ ] Opening `https://ahmadalhaish-tickit.github.io/wael-repo/app/` shows your page
 - [ ] The `## Live version` section of `README.md` has the real link, replacing the
       placeholder line
 - [ ] You opened the link on your phone

@@ -159,8 +159,8 @@ Pick a folder where you keep your work, move into it, and clone. For example:
 
 ```bash
 cd ~/Documents
-git clone https://github.com/<ahmad-username>/watchlist.git
-cd watchlist
+git clone https://github.com/ahmadalhaish-tickit/wael-repo.git
+cd wael-repo
 ```
 
 Replace `<ahmad-username>` with the username Ahmad gives you. `cd` means "change
@@ -175,7 +175,7 @@ To create one:
 
 1. Go to `https://github.com/settings/tokens`.
 2. Click **Generate new token**, then **Generate new token (classic)**.
-3. Give it a note like `watchlist laptop`.
+3. Give it a note like `wael-repo laptop`.
 4. Set an expiry of 90 days.
 5. Tick the **repo** checkbox. That is the only one you need.
 6. Click Generate token at the bottom.
@@ -197,7 +197,7 @@ code .
 ```
 
 The `.` means "this folder". If `code` is not found, open VS Code manually and use
-File, then Open Folder, then choose the `watchlist` folder.
+File, then Open Folder, then choose the `wael-repo` folder.
 
 Have a look around. Open `app/index.html`. You are not expected to understand it
 yet.
@@ -280,7 +280,7 @@ you are:
 pwd
 ```
 
-That prints your current folder. It should end in `/watchlist`. If not, `cd` into
+That prints your current folder. It should end in `/wael-repo`. If not, `cd` into
 it.
 
 **`Authentication failed` or `Permission denied`**

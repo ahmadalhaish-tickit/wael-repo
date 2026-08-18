@@ -206,8 +206,29 @@ yet.
 
 ## 11. Your first branch, commit and pull request
 
-This is the loop you will repeat about 39 times over the next two months. It is
+This is the loop you will repeat about 43 times over the next two months. It is
 worth doing slowly once.
+
+**Step 0 — check you are inside the project.** Do this first, every single time. It
+is the most common thing to get wrong, and it costs people hours.
+
+```bash
+pwd
+git status
+```
+
+`pwd` must print a path ending in `/wael-repo`. `git status` must print something
+normal about your branch and your files.
+
+If either one says `fatal: not a git repository`, you are standing in the wrong
+folder. That is the only thing that error ever means — nothing is broken. Fix it:
+
+```bash
+cd ~/wael-repo
+```
+
+If that folder does not exist, you have not cloned the project yet. Go back to
+section 9 and do that first.
 
 **Step 1 — make a branch.**
 
@@ -257,6 +278,15 @@ This is where it asks for your username and your token. See section 9.
 browser. There will be a yellow banner with a button that says
 **Compare & pull request**. Click it. A form appears, already filled with a
 template. Answer its three questions. Click **Create pull request**.
+
+**No yellow banner?** It only shows for a while after a push, so it may simply have
+disappeared. Take the manual route, which always works: click the
+**Pull requests** tab, then the green **New pull request** button. Set the left
+dropdown to `main` and the right one to your branch, then click
+**Create pull request**.
+
+If your branch is not in that dropdown at all, it never reached GitHub — step 5
+failed. Go back and read the error it printed.
 
 **Step 7 — tell Ahmad.** He reviews it and either approves it or asks a question.
 Do not merge it yourself.

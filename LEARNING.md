@@ -11,4 +11,6 @@ ask.
 ---
 
 ## Your entries start here
-i did everything but when i close gitbash everythings i wrote is gone
+i did all steps in SETUP.md
+i was confused by gitbash a little bit
+i want to ask what the difference between gitbash and vs code terminal

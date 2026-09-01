@@ -3,4 +3,4 @@ git commit -m ""(title llt3dilat yli 3dlta)
 git push origin (teb3at changes 3a github)
 git checkout -b (branch jdid)
 git pull origin main or something else (jeb kolshi jded mn el main)(hay lma abalesh)
-bas 3m bjareb 
+bas 3m bjareb

@@ -11,6 +11,10 @@ ask.
 ---
 
 ## Your entries start here
-i did all steps in SETUP.md
-i was confused by gitbash a little bit
-i want to ask what the difference between gitbash and vs code terminal
+i did all steps in setup.md
+i got confused by gitbash
+want to ask why when i want to do pull and request it says (there isnt anything to compare)heloo2s
+
+
+
+

@@ -11,9 +11,7 @@ ask.
 ---
 
 ## Your entries start here
-i did all steps in setup.md
-i got confused by gitbash
-want to ask why when i want to do pull and request it says (there isnt anything to compare)heloo2s
+everything is good now
 
 
 

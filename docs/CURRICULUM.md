@@ -50,7 +50,7 @@ feel worth it.
 loop once with a change so small that nothing can go wrong with it.
 
 **Done when:**
-- [x] Everything in [SETUP.md](SETUP.md) is done, sections 1 to 11
+- [ ] Everything in [SETUP.md](SETUP.md) is done, sections 1 to 11
 - [ ] `node -v`, `npm -v` and `git --version` all print version numbers
 - [ ] You added an entry to `LEARNING.md` in the same format as the example
 - [ ] You opened a pull request containing only that change

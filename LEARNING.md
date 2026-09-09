@@ -11,6 +11,8 @@ ask.
 ---
 
 ## Your entries start here
+i did task 1.3
+i got confused by learning css
 
 
 

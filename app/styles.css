@@ -1,7 +1,7 @@
 :root {
   --bg: #14161a;
   --text: #e8e6e3;
-  --accent: #dace32;
+  --accent: #f0edc5;
 }
 
 * {
@@ -37,6 +37,35 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.875rem;
   opacity: 0.6;
+}
+
+.movie-grid {
+  padding: 20px;
+  border: 10px;
+  margin: 20px;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.movie-card {
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(190, 184, 184, 0.3);
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 800px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* Task 1.4: the cards have no styling yet, and .movie-grid has no layout.

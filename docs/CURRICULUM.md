@@ -129,12 +129,15 @@ open in a tab — you will use it all week and again in week 8.
 
 **Goal:** Have a real URL, in week 1.
 
-GitHub can host any folder of HTML for free. Turn it on in the repository settings,
-under Pages, choosing `main` as the source.
+GitHub can host any folder of HTML for free. It is already switched on for this
+project — Ahmad had to do that part, because changing repository settings needs
+admin permission and you have write permission. That is normal and not a problem:
+write lets you push branches and open pull requests, which is everything you need.
+
+So your job here is to check it works, then put the link where people can find it.
 
 **Done when:**
-- [ ] GitHub Pages is enabled and the build succeeded (green tick in the Actions
-      tab)
+- [ ] The build succeeded — green tick in the **Actions** tab
 - [ ] Opening `https://ahmadalhaish-tickit.github.io/wael-repo/app/` shows your page
 - [ ] The `## Live version` section of `README.md` has the real link, replacing the
       placeholder line

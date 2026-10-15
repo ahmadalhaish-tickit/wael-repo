@@ -38,7 +38,7 @@ which saves you thousands of clicks over eight weeks.
 
 ## Live version
 
-Not deployed yet. You will add the link here in Task 1.5.
+https://ahmadalhaish-tickit.github.io/wael-repo/app/
 
 ## Where things are
 
